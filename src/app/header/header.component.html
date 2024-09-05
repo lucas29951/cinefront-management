@@ -1,62 +1,66 @@
 <header>
-    <nav class="navbar has-background-dark" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-            <a class="navbar-item px-5"><i class="fa-solid fa-ticket"></i> Cinema</a>
-
-            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
-                data-target="navbarBasicExample">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
+    <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item px-5" href="/">
+          <!-- <img src="assets/logo.png" alt="Logo Cine" width="112" height="28"> -->
+          <i class="fa-solid fa-ticket"></i> Cine SDE
+        </a>
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarMenu">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+  
+      <div id="navbarMenu" class="navbar-menu">
+        <div class="navbar-start">
+          <a class="navbar-item" routerLink="/peliculas">
+            <span class="icon"><i class="fas fa-film"></i></span>
+            <span>Películas</span>
+          </a>
+          <a class="navbar-item" routerLink="/funciones">
+            <span class="icon"><i class="fas fa-calendar-alt"></i></span>
+            <span>Funciones</span>
+          </a>
+        </div>
+  
+        <div class="navbar-end">
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link">
+              <span class="icon"><i class="fas fa-user"></i></span>
+              <span>Perfil</span>
             </a>
-        </div>
-
-        <div id="navbarBasicExample" class="navbar-menu">
-            <div class="navbar-start">
-                <a class="navbar-item">
-                    Home
-                </a>
-
-                <a class="navbar-item">
-                    Documentation
-                </a>
-
-                <div class="navbar-item has-dropdown is-hoverable">
-                    <a class="navbar-link">
-                        More
-                    </a>
-
-                    <div class="navbar-dropdown has-background-dark">
-                        <a class="navbar-item has-background-dark">
-                            About
-                        </a>
-                        <a class="navbar-item has-background-dark">
-                            Jobs
-                        </a>
-                        <a class="navbar-item has-background-dark">
-                            Contact
-                        </a>
-                        <hr class="navbar-divider has-background-dark">
-                        <a class="navbar-item has-background-dark">
-                            Report an issue
-                        </a>
-                    </div>
-                </div>
+  
+            <div class="navbar-dropdown is-right">
+              <a class="navbar-item" routerLink="/perfil">
+                <span class="icon"><i class="fas fa-id-card"></i></span>
+                <span>Mi Perfil</span>
+              </a>
+              <a class="navbar-item" routerLink="/historial">
+                <span class="icon"><i class="fas fa-ticket-alt"></i></span>
+                <span>Historial de Compras</span>
+              </a>
+              <hr class="navbar-divider">
+              <a class="navbar-item">
+                <span class="icon"><i class="fas fa-sign-out-alt"></i></span>
+                <span>Cerrar Sesión</span>
+              </a>
             </div>
-
-            <div class="navbar-end">
-                <div class="navbar-item">
-                    <div class="buttons">
-                        <a class="button is-primary">
-                            <strong>Sign up</strong>
-                        </a>
-                        <a class="button is-light">
-                            Log in
-                        </a>
-                    </div>
-                </div>
+          </div>
+  
+          <div class="navbar-item">
+            <div class="buttons">
+              <a class="button is-light" routerLink="/login">
+                <span class="icon"><i class="fas fa-sign-in-alt"></i></span>
+                <span>Iniciar Sesión</span>
+              </a>
+              <a class="button is-primary" routerLink="/register">
+                <span class="icon"><i class="fas fa-user-plus"></i></span>
+                <span>Registrarse</span>
+              </a>
             </div>
+          </div>
         </div>
+      </div>
     </nav>
-</header>
+  </header>
