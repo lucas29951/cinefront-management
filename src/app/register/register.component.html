@@ -1,1 +1,74 @@
-<p>register works!</p>
+
+<section class="section">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-5">
+          <div class="box">
+            <h1 class="title has-text-centered">Registro</h1>
+            
+            <form (ngSubmit)="onSubmit()">
+              <!-- Nombre Completo -->
+              <div class="field">
+                <label class="label">Nombre Completo</label>
+                <div class="control has-icons-left">
+                  <input class="input" type="text" placeholder="Tu nombre completo" [(ngModel)]="nombre" name="nombre" required>
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-user"></i>
+                  </span>
+                </div>
+              </div>
+  
+              <!-- Email -->
+              <div class="field">
+                <label class="label">Correo Electrónico</label>
+                <div class="control has-icons-left">
+                  <input class="input" type="email" placeholder="tuemail@ejemplo.com" [(ngModel)]="email" name="email" required>
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-envelope"></i>
+                  </span>
+                </div>
+              </div>
+  
+              <!-- Contraseña -->
+              <div class="field">
+                <label class="label">Contraseña</label>
+                <div class="control has-icons-left">
+                  <input class="input" type="password" placeholder="********" [(ngModel)]="password" name="password" required>
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-lock"></i>
+                  </span>
+                </div>
+              </div>
+  
+              <!-- Confirmar Contraseña -->
+              <div class="field">
+                <label class="label">Confirmar Contraseña</label>
+                <div class="control has-icons-left">
+                  <input class="input" type="password" placeholder="********" [(ngModel)]="confirmPassword" name="confirmPassword" required>
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-lock"></i>
+                  </span>
+                </div>
+              </div>
+  
+              <!-- Botón de Registro -->
+              <div class="field">
+                <div class="control">
+                  <button class="button is-success is-fullwidth" type="submit">
+                    <span class="icon"><i class="fas fa-user-plus"></i></span>
+                    <span>Registrarse</span>
+                  </button>
+                </div>
+              </div>
+  
+              <!-- Enlace para Iniciar Sesión -->
+              <div class="has-text-centered">
+                <a routerLink="/login">¿Ya tienes una cuenta? Inicia Sesión</a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
