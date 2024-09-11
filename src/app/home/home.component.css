@@ -1,0 +1,16 @@
+
+.carousel {
+    margin-top: 2rem;
+    overflow: hidden;
+}
+
+.carousel-container {
+    display: flex;
+    transition: transform 0.5s ease;
+    justify-content: center;
+}
+
+.carousel-item {
+    min-width: 350px;
+    margin-right: 1rem;
+}
