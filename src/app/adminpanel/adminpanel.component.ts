@@ -12,4 +12,15 @@ export class AdminpanelComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  gestionarPeliculas() {
+    console.log('Redirigir a la gestión de películas');
+  }
+
+  gestionarFunciones() {
+    console.log('Redirigir a la gestión de funciones');
+  }
+
+  gestionarUsuarios() {
+    console.log('Redirigir a la gestión de usuarios');
+  }
 }
