@@ -24,11 +24,11 @@
       </div>
   
       <div class="has-text-centered is-flex is-justify-content-space-around mt-4">
-        <button class="button is-primary is-light" (click)="prevSlide()">
+        <button class="button is-light is-outlined" (click)="prevSlide()">
           <span class="icon"><i class="fas fa-arrow-left"></i></span>
           <span>Anterior</span>
         </button>
-        <button class="button is-primary is-light" (click)="nextSlide()">
+        <button class="button is-light is-outlined" (click)="nextSlide()">
           <span class="icon"><i class="fas fa-arrow-right"></i></span>
           <span>Siguiente</span>
         </button>
@@ -48,7 +48,7 @@
                 <h3 class="title is-5">{{ funcion.pelicula }}</h3>
                 <p class="subtitle is-6">Hora: {{ funcion.hora }}</p>
                 <p class="subtitle is-6">Sala: {{ funcion.sala }}</p>
-                <button class="button is-info is-fullwidth" (click)="verDetallesFuncion(funcion)">
+                <button class="button is-info is-dark is-fullwidth" (click)="verDetallesFuncion(funcion)">
                   Ver Detalles
                 </button>
               </div>
