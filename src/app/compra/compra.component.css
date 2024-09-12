@@ -1,0 +1,13 @@
+
+.button {
+    width: 100%;
+    margin: 0.5rem;
+}
+
+.box {
+    margin-top: 2rem;
+}
+
+.columns.is-centered {
+    margin: 1rem 0;
+}
