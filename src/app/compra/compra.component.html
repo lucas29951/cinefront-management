@@ -1,1 +1,42 @@
-<p>compra works!</p>
+
+<section class="section">
+    <div class="container">
+      <div class="content has-text-centered">
+        <h1 class="title">Compra de Entradas</h1>
+        <p class="subtitle">Selecciona tus asientos para la función</p>
+      </div>
+  
+      <div class="box">
+        <h2 class="title is-4">Película: {{ pelicula.titulo }}</h2>
+        <p>Función: {{ funcion.fecha }} a las {{ funcion.hora }}</p>
+        <p>Sala: {{ funcion.sala }}</p>
+      </div>
+  
+      <div class="content">
+        <h3 class="title is-5">Selecciona tus asientos</h3>
+        <div class="columns is-multiline is-centered">
+          <div class="column is-1" *ngFor="let asiento of asientos">
+            <button
+              class="button"
+              [ngClass]="{
+                'is-success': asiento.estado === 'disponible',
+                'is-danger': asiento.estado === 'reservado',
+                'is-warning': asiento.estado === 'seleccionado'
+              }"
+              (click)="seleccionarAsiento(asiento)"
+              [disabled]="asiento.estado === 'reservado'"
+            >
+              {{ asiento.numero }}
+            </button>
+          </div>
+        </div>
+      </div>
+  
+      <div class="box">
+        <h3 class="title is-5">Resumen de la compra</h3>
+        <p>Asientos seleccionados: {{ asientosSeleccionados.length }}</p>
+        <p>Precio total: ${{ precioTotal }}</p>
+        <button class="button is-primary" (click)="confirmarCompra()" [disabled]="asientosSeleccionados.length === 0">Confirmar Compra</button>
+      </div>
+    </div>
+  </section>  
