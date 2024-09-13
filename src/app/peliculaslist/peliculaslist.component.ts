@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-peliculaslist',
@@ -27,7 +28,7 @@ export class PeliculaslistComponent implements OnInit {
     },
   ];
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -38,6 +39,6 @@ export class PeliculaslistComponent implements OnInit {
 
   comprarEntradas(id: number) {
     console.log('Comprar entradas para la pelicula con ID: ', id);
-    
+    this.router.navigate(['/compra']);
   }
 }
