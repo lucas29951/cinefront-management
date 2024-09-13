@@ -13,6 +13,7 @@ import { HomeComponent } from './home/home.component';
 import { AdminpanelComponent } from './adminpanel/adminpanel.component';
 import { CompraComponent } from './compra/compra.component';
 import { PeliculaslistComponent } from './peliculaslist/peliculaslist.component';
+import { PeliculadetailComponent } from './peliculadetail/peliculadetail.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { PeliculaslistComponent } from './peliculaslist/peliculaslist.component'
     HomeComponent,
     AdminpanelComponent,
     CompraComponent,
-    PeliculaslistComponent
+    PeliculaslistComponent,
+    PeliculadetailComponent
   ],
   imports: [
     BrowserModule,
