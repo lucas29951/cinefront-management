@@ -1,1 +1,49 @@
-<p>peliculaslist works!</p>
+
+<div class="container mt-5 mb-6">
+    <h1 class="title">Cartelera de Películas</h1>
+  
+    <div class="columns is-multiline">
+      <div class="column is-one-quarter" *ngFor="let pelicula of peliculas">
+        <div class="card">
+          <div class="card-image">
+            <figure class="image is-4by3">
+              <img [src]="pelicula.imagen" alt="{{ pelicula.titulo }}">
+            </figure>
+          </div>
+          <div class="card-content">
+            <div class="media">
+              <div class="media-left">
+                <span class="icon">
+                  <i class="fas fa-film"></i>
+                </span>
+              </div>
+              <div class="media-content">
+                <p class="title is-4">{{ pelicula.titulo }}</p>
+                <p class="subtitle is-6">{{ pelicula.genero }} - {{ pelicula.duracion }} mins</p>
+              </div>
+            </div>
+  
+            <div class="content">
+              {{ pelicula.descripcion | slice:0:100 }}...
+              <br>
+              <small><i class="fas fa-calendar-alt"></i> Estreno: {{ pelicula.fechaEstreno }}</small>
+            </div>
+          </div>
+          <footer class="is-flex is-justify-content-space-around px-3 pb-3">
+            <a class="button is-primary is-dark is-small has-text-light" (click)="comprarEntradas(pelicula.id)">
+              <span class="icon">
+                <i class="fas fa-ticket-alt"></i>
+              </span>
+              <span>Comprar entradas</span>
+            </a>
+            <a class="button is-info is-outlined is-small" (click)="verDetalles(pelicula.id)">
+                <span class="icon">
+                  <i class="fas fa-info-circle"></i>
+                </span>
+                <span>Ver detalles</span>
+              </a>
+          </footer>
+        </div>
+      </div>
+    </div>
+  </div>  
