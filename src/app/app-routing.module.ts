@@ -8,6 +8,7 @@ import { AdminpanelComponent } from './adminpanel/adminpanel.component';
 import { CompraComponent } from './compra/compra.component';
 import { PeliculaslistComponent } from './peliculaslist/peliculaslist.component';
 import { PeliculadetailComponent } from './peliculadetail/peliculadetail.component';
+import { FuncioneslistComponent } from './funcioneslist/funcioneslist.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'admin', component: AdminpanelComponent },
   { path: 'peliculas', component: PeliculaslistComponent },
   { path: 'peliculas/:id', component: PeliculadetailComponent },
+  { path: 'funciones', component: FuncioneslistComponent },
   { path: 'comprar/:id', component: CompraComponent },
 ];
 
