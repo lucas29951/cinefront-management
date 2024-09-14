@@ -1,1 +1,44 @@
-<p>funcioneslist works!</p>
+
+<div class="container mt-5 mb-6">
+    <div class="columns">
+      <div class="column">
+        <h1 class="title">Funciones Disponibles</h1>
+      </div>
+      <div class="column has-text-right">
+        <button class="button is-light is-outlined" (click)="volverAInicio()">
+          <span class="icon">
+            <i class="fas fa-arrow-left"></i>
+          </span>
+          <span>Volver</span>
+        </button>
+      </div>
+    </div>
+  
+    <table class="table is-striped is-fullwidth">
+      <thead>
+        <tr>
+          <th>Película</th>
+          <th>Fecha</th>
+          <th>Hora</th>
+          <th>Sala</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let funcion of funciones">
+          <td>{{ funcion.peliculaTitulo }}</td>
+          <td>{{ funcion.fecha }}</td>
+          <td>{{ funcion.hora }}</td>
+          <td>{{ funcion.sala }}</td>
+          <td>
+            <button class="button is-small is-primary is-dark has-text-light" (click)="comprarEntradas(funcion.id)">
+              <span class="icon">
+                <i class="fas fa-ticket-alt"></i>
+              </span>
+              <span>Comprar</span>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>  
