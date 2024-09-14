@@ -1,1 +1,29 @@
-<p>historialcompras works!</p>
+
+<div class="container mt-5 mb-6">
+    <h1 class="title">Historial de Compras</h1>
+  
+    <table class="table is-striped is-fullwidth">
+      <thead>
+        <tr>
+          <th>Película</th>
+          <th>Función</th>
+          <th>Cantidad de Entradas</th>
+          <th>Fecha de Compra</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let compra of historialCompras">
+          <td>{{ compra.peliculaTitulo }}</td>
+          <td>{{ compra.fechaFuncion }} - {{ compra.horaFuncion }}</td>
+          <td>{{ compra.cantidadEntradas }}</td>
+          <td>{{ compra.fechaCompra }}</td>
+          <td>{{ compra.total | currency:'USD' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <div *ngIf="historialCompras.length === 0" class="has-text-centered">
+      <p class="is-size-5">Aún no has realizado ninguna compra.</p>
+    </div>
+  </div>  
