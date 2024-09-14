@@ -36,8 +36,10 @@ export class PeliculadetailComponent implements OnInit {
   comprarEntradas(funcionId?: number) {
     if (funcionId) {
       console.log('Comprar entradas para la función con ID:', funcionId);
+      this.router.navigate([`/comprar/${funcionId}`]);
     } else {
       console.log('Comprar entradas para la película');
+      this.router.navigate([`/comprar/0`]);
     }
   }
 }
