@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-peliculadetail',
@@ -22,13 +23,14 @@ export class PeliculadetailComponent implements OnInit {
     ]
   };
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
 
   volverAListado() {
     console.log('Volver al listado de películas');
+    this.router.navigate(['/peliculas']);
   }
 
   comprarEntradas(funcionId?: number) {
