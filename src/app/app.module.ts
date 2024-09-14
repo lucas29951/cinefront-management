@@ -15,6 +15,7 @@ import { CompraComponent } from './compra/compra.component';
 import { PeliculaslistComponent } from './peliculaslist/peliculaslist.component';
 import { PeliculadetailComponent } from './peliculadetail/peliculadetail.component';
 import { FuncioneslistComponent } from './funcioneslist/funcioneslist.component';
+import { HistorialcomprasComponent } from './historialcompras/historialcompras.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { FuncioneslistComponent } from './funcioneslist/funcioneslist.component'
     CompraComponent,
     PeliculaslistComponent,
     PeliculadetailComponent,
-    FuncioneslistComponent
+    FuncioneslistComponent,
+    HistorialcomprasComponent
   ],
   imports: [
     BrowserModule,
