@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-funcioneslist',
@@ -23,16 +24,18 @@ export class FuncioneslistComponent implements OnInit {
     },
   ];
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
 
   volverAInicio() {
     console.log('Volver a la página principal');
+    this.router.navigate(['/']);
   }
 
   comprarEntradas(funcionId: number) {
     console.log('Comprar entradas para la función con ID:', funcionId);
+    this.router.navigate([`/comprar/${funcionId}`]);
   }
 }
