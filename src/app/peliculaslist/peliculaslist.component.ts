@@ -35,10 +35,11 @@ export class PeliculaslistComponent implements OnInit {
 
   verDetalles(id: number) {
     console.log('Ver detalles de pelicula con ID: ', id);
+    this.router.navigate([`/peliculas/${id}`]);
   }
 
   comprarEntradas(id: number) {
     console.log('Comprar entradas para la pelicula con ID: ', id);
-    this.router.navigate(['/compra']);
+    this.router.navigate([`/comprar/${id}`]);
   }
 }
