@@ -1,1 +1,77 @@
-<p>peliculadetail works!</p>
+
+<div class="container mt-5 mb-6">
+    <div class="columns">
+      <div class="column is-three-quarters">
+        <h1 class="title">{{ pelicula.titulo }}</h1>
+        <p class="subtitle">{{ pelicula.genero }} - {{ pelicula.duracion }} mins</p>
+      </div>
+      <div class="column is-one-quarter has-text-right">
+        <button class="button is-light is-outlined" (click)="volverAListado()">
+          <span class="icon">
+            <i class="fas fa-arrow-left"></i>
+          </span>
+          <span>Volver</span>
+        </button>
+      </div>
+    </div>
+  
+    <div class="columns">
+      <div class="column is-half">
+        <figure class="image is-16by9">
+          <img [src]="pelicula.imagen" alt="{{ pelicula.titulo }}">
+        </figure>
+      </div>
+      <div class="column is-half">
+        <p class="content">
+          {{ pelicula.descripcion }}
+        </p>
+        <p>
+          <strong>Fecha de estreno:</strong> {{ pelicula.fechaEstreno }}
+        </p>
+        <p>
+          <strong>Director:</strong> {{ pelicula.director }}
+        </p>
+        <p>
+          <strong>Reparto:</strong> {{ pelicula.reparto }}
+        </p>
+        <p>
+          <strong>Clasificación:</strong> {{ pelicula.clasificacion }}
+        </p>
+        <button class="button is-primary is-dark is-fullwidth mt-5" (click)="comprarEntradas()">
+          <span class="icon">
+            <i class="fas fa-ticket-alt"></i>
+          </span>
+          <span>Comprar Entradas</span>
+        </button>
+      </div>
+    </div>
+  
+    <div class="mt-5">
+      <h2 class="title is-4">Funciones disponibles</h2>
+      <table class="table is-striped is-fullwidth">
+        <thead>
+          <tr>
+            <th>Fecha</th>
+            <th>Hora</th>
+            <th>Sala</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let funcion of pelicula.funciones">
+            <td>{{ funcion.fecha }}</td>
+            <td>{{ funcion.hora }}</td>
+            <td>{{ funcion.sala }}</td>
+            <td>
+              <button class="button is-small is-link is-dark has-text-light" (click)="comprarEntradas(funcion.id)">
+                <span class="icon">
+                  <i class="fas fa-ticket-alt"></i>
+                </span>
+                <span>Comprar</span>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>  
