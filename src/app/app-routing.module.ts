@@ -9,6 +9,7 @@ import { CompraComponent } from './compra/compra.component';
 import { PeliculaslistComponent } from './peliculaslist/peliculaslist.component';
 import { PeliculadetailComponent } from './peliculadetail/peliculadetail.component';
 import { FuncioneslistComponent } from './funcioneslist/funcioneslist.component';
+import { HistorialcomprasComponent } from './historialcompras/historialcompras.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent },
+  { path: 'historial', component: HistorialcomprasComponent },
   { path: 'admin', component: AdminpanelComponent },
   { path: 'peliculas', component: PeliculaslistComponent },
   { path: 'peliculas/:id', component: PeliculadetailComponent },
