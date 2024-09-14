@@ -14,6 +14,7 @@ import { AdminpanelComponent } from './adminpanel/adminpanel.component';
 import { CompraComponent } from './compra/compra.component';
 import { PeliculaslistComponent } from './peliculaslist/peliculaslist.component';
 import { PeliculadetailComponent } from './peliculadetail/peliculadetail.component';
+import { FuncioneslistComponent } from './funcioneslist/funcioneslist.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { PeliculadetailComponent } from './peliculadetail/peliculadetail.compone
     AdminpanelComponent,
     CompraComponent,
     PeliculaslistComponent,
-    PeliculadetailComponent
+    PeliculadetailComponent,
+    FuncioneslistComponent
   ],
   imports: [
     BrowserModule,
