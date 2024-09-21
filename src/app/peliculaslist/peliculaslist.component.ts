@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { PeliculasService } from '../services/peliculas.service';
 
 @Component({
   selector: 'app-peliculaslist',
@@ -11,7 +12,7 @@ export class PeliculaslistComponent implements OnInit {
     {
       id: 1,
       titulo: 'Película 1',
-      imagen: 'https://via.placeholder.com/400x300',
+      poster_url: 'https://via.placeholder.com/400x300',
       genero: 'Acción',
       duracion: 120,
       descripcion: 'Una película llena de acción y aventura.',
@@ -20,7 +21,7 @@ export class PeliculaslistComponent implements OnInit {
     {
       id: 2,
       titulo: 'Otra Película',
-      imagen: 'https://via.placeholder.com/400x300',
+      poster_url: 'https://via.placeholder.com/400x300',
       genero: 'Comedia',
       duracion: 90,
       descripcion: 'Una comedia que te hará reír a carcajadas.',
@@ -28,9 +29,24 @@ export class PeliculaslistComponent implements OnInit {
     },
   ];
 
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router,
+    private service: PeliculasService
+  ) { }
 
   ngOnInit(): void {
+    this.getPeliculas();
+  }
+
+  getPeliculas(): void {
+    this.service.getPeliculas().subscribe(
+      (data) => {
+        this.peliculas = data;
+      },
+      (error) => {
+        console.error('Error al obtener las peliculas', error);
+      }
+    );
   }
 
   verDetalles(id: number) {
