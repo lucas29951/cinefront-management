@@ -6,11 +6,11 @@
           <div class="box">
             <h1 class="title has-text-centered">Registro</h1>
             
-            <form (ngSubmit)="onSubmit()">
+            <form (ngSubmit)="register()">
               <div class="field">
                 <label class="label">Nombre Completo</label>
                 <div class="control has-icons-left">
-                  <input class="input" type="text" placeholder="Tu nombre completo" [(ngModel)]="nombre" name="nombre" required>
+                  <input class="input" type="text" placeholder="Tu nombre completo" [(ngModel)]="user.nombre" name="nombre" required>
                   <span class="icon is-small is-left">
                     <i class="fas fa-user"></i>
                   </span>
@@ -20,7 +20,7 @@
               <div class="field">
                 <label class="label">Correo Electrónico</label>
                 <div class="control has-icons-left">
-                  <input class="input" type="email" placeholder="tuemail@ejemplo.com" [(ngModel)]="email" name="email" required>
+                  <input class="input" type="email" placeholder="tuemail@ejemplo.com" [(ngModel)]="user.email" name="email" required>
                   <span class="icon is-small is-left">
                     <i class="fas fa-envelope"></i>
                   </span>
@@ -30,7 +30,7 @@
               <div class="field">
                 <label class="label">Contraseña</label>
                 <div class="control has-icons-left">
-                  <input class="input" type="password" placeholder="********" [(ngModel)]="password" name="password" required>
+                  <input class="input" type="password" placeholder="********" [(ngModel)]="user.password" name="password" required>
                   <span class="icon is-small is-left">
                     <i class="fas fa-lock"></i>
                   </span>
@@ -59,6 +59,8 @@
               <div class="has-text-centered">
                 <a routerLink="/login">¿Ya tienes una cuenta? Inicia Sesión</a>
               </div>
+
+              <p class="has-text-danger is-flex is-justify-content-center mt-3">{{ errorMessage }}</p>
             </form>
           </div>
         </div>
