@@ -26,45 +26,49 @@
         </div>
   
         <div class="navbar-end">
-          <div class="navbar-item has-dropdown is-hoverable">
-            <a class="navbar-link">
-              <span class="icon"><i class="fas fa-user"></i></span>
-              <span>Perfil</span>
-            </a>
-  
-            <div class="navbar-dropdown is-right">
-              <a class="navbar-item" routerLink="/profile">
-                <span class="icon"><i class="fas fa-id-card"></i></span>
-                <span>Mi Perfil</span>
+          <ng-container *ngIf="nombreUsuario; else noUsuario">
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link">
+                <span class="icon"><i class="fas fa-user"></i></span>
+                <span>{{ nombreUsuario }}</span>
               </a>
-              <a class="navbar-item" routerLink="/historial">
-                <span class="icon"><i class="fas fa-ticket-alt"></i></span>
-                <span>Historial de Compras</span>
-              </a>
-              <a class="navbar-item" routerLink="/admin">
-                <span class="icon"><i class="fa-solid fa-gauge-high"></i></span>
-                <span>Panel de Administracion</span>
-              </a>
-              <hr class="navbar-divider">
-              <a class="navbar-item">
-                <span class="icon"><i class="fas fa-sign-out-alt"></i></span>
-                <span>Cerrar Sesión</span>
-              </a>
+              <div class="navbar-dropdown is-right">
+                <a class="navbar-item" routerLink="/profile">
+                  <span class="icon"><i class="fas fa-id-card"></i></span>
+                  <span>Mi Perfil</span>
+                </a>
+                <a class="navbar-item" routerLink="/historial">
+                  <span class="icon"><i class="fas fa-ticket-alt"></i></span>
+                  <span>Historial de Compras</span>
+                </a>
+                <a class="navbar-item" routerLink="/admin">
+                  <span class="icon"><i class="fa-solid fa-gauge-high"></i></span>
+                  <span>Panel de Administración</span>
+                </a>
+                <hr class="navbar-divider">
+                <a class="navbar-item" (click)="logout()">
+                  <span class="icon"><i class="fas fa-sign-out-alt"></i></span>
+                  <span>Cerrar Sesión</span>
+                </a>
+              </div>
             </div>
-          </div>
+          </ng-container>
   
-          <div class="navbar-item">
-            <div class="buttons">
-              <a class="button is-light is-outlined" routerLink="/login">
-                <span class="icon"><i class="fas fa-sign-in-alt"></i></span>
-                <span>Iniciar Sesión</span>
-              </a>
-              <a class="button is-primary is-dark" routerLink="/register">
-                <span class="icon"><i class="fas fa-user-plus"></i></span>
-                <span>Registrarse</span>
-              </a>
+          <ng-template #noUsuario>
+            <div class="navbar-item">
+              <div class="buttons">
+                <a class="button is-light is-outlined" routerLink="/login">
+                  <span class="icon"><i class="fas fa-sign-in-alt"></i></span>
+                  <span>Iniciar Sesión</span>
+                </a>
+                <a class="button is-primary is-dark" routerLink="/register">
+                  <span class="icon"><i class="fas fa-user-plus"></i></span>
+                  <span>Registrarse</span>
+                </a>
+              </div>
             </div>
-          </div>
+          </ng-template>
+  
         </div>
       </div>
     </nav>
