@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -6,11 +8,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  nombreUsuario: string | null = null;
 
-  constructor() { }
+  constructor(
+    private router: Router,
+    private authService: AuthService
+  ) { }
 
   ngOnInit(): void {
     this.initializeNavbarBurger();
+    this.nombreUsuario = localStorage.getItem('nombreUsuario');
   }
 
   initializeNavbarBurger() {
@@ -29,5 +36,12 @@ export class HeaderComponent implements OnInit {
         });
       }
     });
+  }
+
+  logout() {
+    this.authService.logout();
+    localStorage.removeItem('nombreUsuario');
+    this.nombreUsuario = null;
+    this.router.navigate(['/login']);
   }
 }
