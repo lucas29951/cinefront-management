@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -10,7 +12,10 @@ export class ProfileComponent implements OnInit {
   email: string = 'lucas@gmail.com';
   fechaRegistro: string = '15 de Septiembre, 2024';
 
-  constructor() { }
+  constructor(
+    private authService: AuthService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
   }
@@ -24,6 +29,8 @@ export class ProfileComponent implements OnInit {
   }
 
   onLogout() {
-    console.log('Cerrar sesion');
+    this.authService.logout();
+    localStorage.removeItem('nombreUsuario');
+    this.router.navigate(['/login']);
   }
 }
