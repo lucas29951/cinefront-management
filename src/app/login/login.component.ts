@@ -31,7 +31,8 @@ export class LoginComponent implements OnInit {
     this.authService.login(this.credentials).subscribe(
       (response: any) => {
         this.authService.setToken(response.token);
-        this.router.navigate(['']);
+        localStorage.setItem('nombreUsuario', response.user.nombre);
+        this.router.navigate(['/profile']);
       },
     (error) => {
       this.errorMessage = 'Error de autenticacion. Verifica tus credenciales.';
