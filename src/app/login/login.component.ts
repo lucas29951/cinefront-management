@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
+import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-login',
@@ -16,10 +17,12 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private cdr: ChangeDetectorRef
   ) { }
 
   ngOnInit(): void {
+    this.cdr.detectChanges();
   }
 
   onSubmit() {
@@ -32,6 +35,8 @@ export class LoginComponent implements OnInit {
       (response: any) => {
         this.authService.setToken(response.token);
         localStorage.setItem('nombreUsuario', response.user.nombre);
+        localStorage.setItem('correoUsuario', response.user.email);
+        this.cdr.detectChanges();
         this.router.navigate(['/profile']);
       },
     (error) => {
