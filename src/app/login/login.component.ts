@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
 import { ChangeDetectorRef } from '@angular/core';
+import { Usuario } from '../models/usuario';
 
 @Component({
   selector: 'app-login',
@@ -9,10 +10,7 @@ import { ChangeDetectorRef } from '@angular/core';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  credentials = {
-    email: '',
-    password: ''
-  };
+  credentials: Partial<Usuario> = { email: '', password: '' };
   errorMessage: string = '';
 
   constructor(
