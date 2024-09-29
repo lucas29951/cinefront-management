@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
+import { Usuario } from '../models/usuario';
 
 @Injectable({
   providedIn: 'root'
@@ -14,11 +15,11 @@ export class AuthService {
     private router: Router
   ) { }
 
-  register(user: any): Observable<any> {
+  register(user: Usuario): Observable<any> {
     return this.http.post(`${this.baseUrl}/api/usuarios/register`, user);
   }
 
-  login(credentials: any): Observable<any> {
+  login(credentials: Partial<Usuario>): Observable<any> {
     return this.http.post(`${this.baseUrl}/api/usuarios/login`, credentials);
   }
 
