@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
+import { Usuario } from '../models/usuario';
 
 @Component({
   selector: 'app-register',
@@ -8,12 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  user = {
-    nombre: '',
-    email: '',
-    password: '',
-    rol: 2
-  };
+  user: Usuario = { nombre: '', email: '', password: '', rol_id: 2 };
   confirmPassword: string = '';
   errorMessage: string = '';
 
@@ -36,11 +32,6 @@ export class RegisterComponent implements OnInit {
   }
 
   register() {
-    console.log("Nombre: ", this.user.nombre);
-    console.log("Email: ", this.user.email);
-    console.log("Contraseña: ", this.user.password);
-    console.log("Rol: ", this.user.rol);
-    
     this.authService.register(this.user).subscribe(
       (response) => {
         this.router.navigate(['/login']);
