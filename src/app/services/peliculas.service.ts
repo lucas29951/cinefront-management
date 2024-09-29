@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Pelicula } from '../models/pelicula';
 
 @Injectable({
   providedIn: 'root'
@@ -14,11 +15,11 @@ export class PeliculasService {
     return this.http.get(`${this.apiUrl}`);
   }
 
-  addPelicula(pelicula: any): Observable<any> {
+  addPelicula(pelicula: Pelicula): Observable<any> {
     return this.http.post(this.apiUrl, pelicula);
   }
 
-  updatePelicula(id: string, pelicula: any): Observable<any> {
+  updatePelicula(id: string, pelicula: Pelicula): Observable<any> {
     return this.http.put(`${this.apiUrl}/${id}`, pelicula);
   }
 
