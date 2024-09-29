@@ -6,7 +6,7 @@ export interface Pelicula {
     director: string;
     duracion: number;
     genero: string;
-    clasificacion: number;
+    clasificacion: string;
     poster_url: string;
   }
   
