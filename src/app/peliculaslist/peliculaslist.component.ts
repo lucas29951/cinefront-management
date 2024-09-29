@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PeliculasService } from '../services/peliculas.service';
+import { Pelicula } from '../models/pelicula';
 
 @Component({
   selector: 'app-peliculaslist',
@@ -8,26 +9,7 @@ import { PeliculasService } from '../services/peliculas.service';
   styleUrls: ['./peliculaslist.component.css']
 })
 export class PeliculaslistComponent implements OnInit {
-  peliculas = [
-    {
-      id: 1,
-      titulo: 'Película 1',
-      poster_url: 'https://via.placeholder.com/400x300',
-      genero: 'Acción',
-      duracion: 120,
-      descripcion: 'Una película llena de acción y aventura.',
-      fechaEstreno: '2024-09-15'
-    },
-    {
-      id: 2,
-      titulo: 'Otra Película',
-      poster_url: 'https://via.placeholder.com/400x300',
-      genero: 'Comedia',
-      duracion: 90,
-      descripcion: 'Una comedia que te hará reír a carcajadas.',
-      fechaEstreno: '2024-10-01'
-    },
-  ];
+  peliculas: Pelicula[] = [];
 
   constructor(
     private router: Router,
