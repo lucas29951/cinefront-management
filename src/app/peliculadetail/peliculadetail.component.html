@@ -2,8 +2,8 @@
 <div class="container mt-5 mb-6">
     <div class="columns">
       <div class="column is-three-quarters">
-        <h1 class="title">{{ pelicula.titulo }}</h1>
-        <p class="subtitle">{{ pelicula.genero }} - {{ pelicula.duracion }} mins</p>
+        <h1 class="title">{{ pelicula?.titulo }}</h1>
+        <p class="subtitle">{{ pelicula?.genero }} - {{ pelicula?.duracion }} mins</p>
       </div>
       <div class="column is-one-quarter has-text-right">
         <button class="button is-light is-outlined" (click)="volverAListado()">
@@ -18,24 +18,24 @@
     <div class="columns">
       <div class="column is-half">
         <figure class="image is-16by9">
-          <img [src]="pelicula.imagen" alt="{{ pelicula.titulo }}">
+          <img [src]="pelicula?.poster_url" alt="{{ pelicula?.titulo }}">
         </figure>
       </div>
       <div class="column is-half">
         <p class="content">
-          {{ pelicula.descripcion }}
+          {{ pelicula?.descripcion }}
         </p>
-        <p>
+        <!-- <p>
           <strong>Fecha de estreno:</strong> {{ pelicula.fechaEstreno }}
-        </p>
+        </p> -->
         <p>
-          <strong>Director:</strong> {{ pelicula.director }}
+          <strong>Director:</strong> {{ pelicula?.director }}
         </p>
-        <p>
+        <!-- <p>
           <strong>Reparto:</strong> {{ pelicula.reparto }}
-        </p>
+        </p> -->
         <p>
-          <strong>Clasificación:</strong> {{ pelicula.clasificacion }}
+          <strong>Clasificación:</strong> {{ pelicula?.clasificacion }}
         </p>
         <button class="button is-primary is-dark is-fullwidth mt-5" (click)="comprarEntradas()">
           <span class="icon">
@@ -57,7 +57,7 @@
             <th>Acciones</th>
           </tr>
         </thead>
-        <tbody>
+        <!-- <tbody>
           <tr *ngFor="let funcion of pelicula.funciones">
             <td>{{ funcion.fecha }}</td>
             <td>{{ funcion.hora }}</td>
@@ -71,7 +71,7 @@
               </button>
             </td>
           </tr>
-        </tbody>
+        </tbody> -->
       </table>
     </div>
   </div>  
