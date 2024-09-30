@@ -15,6 +15,10 @@ export class PeliculasService {
     return this.http.get(`${this.apiUrl}`);
   }
 
+  getPeliculaByID(id: string): Observable<any> {
+    return this.http.get(`${this.apiUrl}/${id}`);
+  }
+
   addPelicula(pelicula: Pelicula): Observable<any> {
     return this.http.post(this.apiUrl, pelicula);
   }
