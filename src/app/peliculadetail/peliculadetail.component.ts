@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { PeliculasService } from '../services/peliculas.service';
 import { Pelicula } from '../models/pelicula';
+import { FuncionesService } from '../services/funciones.service';
+import { Funcion } from '../models/funcion';
 
 @Component({
   selector: 'app-peliculadetail',
@@ -10,12 +12,14 @@ import { Pelicula } from '../models/pelicula';
 })
 export class PeliculadetailComponent implements OnInit {
   pelicula: Pelicula | null = null;
+  funciones: Funcion[] = [];
   idPelicula: string = '';
 
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private peliculaService: PeliculasService
+    private peliculaService: PeliculasService,
+    private funcionService: FuncionesService
   ) { }
 
   ngOnInit(): void {
@@ -26,6 +30,14 @@ export class PeliculadetailComponent implements OnInit {
       },
       (error) => {
         console.log('Error al obtener la pelicula: ', error);
+      }
+    );
+    this.funcionService.getFuncionesByPelicula(this.idPelicula).subscribe(
+      (data) => {
+        this.funciones = data;
+      },
+      (error) => {
+        console.log('Error al obtener las funciones de la pelicula: ', error);
       }
     );
   }
