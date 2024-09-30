@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { PeliculasService } from '../services/peliculas.service';
+import { Pelicula } from '../models/pelicula';
 
 @Component({
   selector: 'app-peliculadetail',
@@ -7,25 +9,25 @@ import { Router } from '@angular/router';
   styleUrls: ['./peliculadetail.component.css']
 })
 export class PeliculadetailComponent implements OnInit {
-  pelicula = {
-    titulo: 'Película Ejemplo',
-    imagen: 'https://via.placeholder.com/350x200',
-    descripcion: 'Una descripción completa de la película de ejemplo...',
-    fechaEstreno: '2024-09-15',
-    director: 'John Doe',
-    reparto: 'Actor 1, Actor 2, Actor 3',
-    clasificacion: 'PG-13',
-    duracion: 120,
-    genero: 'Acción',
-    funciones: [
-      { id: 1, fecha: '2024-09-15', hora: '18:00', sala: 'Sala 1' },
-      { id: 2, fecha: '2024-09-16', hora: '20:00', sala: 'Sala 2' },
-    ]
-  };
+  pelicula: Pelicula | null = null;
+  idPelicula: string = '';
 
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private peliculaService: PeliculasService
+  ) { }
 
   ngOnInit(): void {
+    this.idPelicula = this.route.snapshot.paramMap.get('id') || '';
+    this.peliculaService.getPeliculaByID(this.idPelicula).subscribe(
+      (data) => {
+        this.pelicula = data[0];
+      },
+      (error) => {
+        console.log('Error al obtener la pelicula: ', error);
+      }
+    );
   }
 
   volverAListado() {
