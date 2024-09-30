@@ -14,6 +14,10 @@ export class FuncionesService {
     return this.http.get(`${this.apiUrl}`);
   }
 
+  getFuncionesByPelicula(id: string): Observable<any> {
+    return this.http.get(`${this.apiUrl}/${id}`);
+  }
+
   addFuncion(funcion: any): Observable<any> {
     return this.http.post(this.apiUrl, funcion);
   }
