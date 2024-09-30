@@ -19,12 +19,13 @@
               </div>
               <div class="media-content">
                 <p class="title is-4">{{ pelicula.titulo }}</p>
-                <p class="subtitle is-6">{{ pelicula.genero }} - {{ pelicula.duracion }} mins</p>
+                <p class="subtitle is-6 mb-3 mt-1">{{ pelicula.genero }}</p>
+                <p class="subtitle is-6">{{ pelicula.duracion }} mins</p>
               </div>
             </div>
   
             <div class="content">
-              {{ pelicula.descripcion | slice:0:100 }}...
+              <!-- {{ pelicula.descripcion | slice:0:100 }}... -->
               <br>
               <small><i class="fas fa-calendar-alt"></i> Clasificacion: {{ pelicula.clasificacion }}</small>
             </div>
