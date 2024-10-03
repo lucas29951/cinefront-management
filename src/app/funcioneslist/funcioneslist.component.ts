@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FuncionesService } from '../services/funciones.service';
+import { Funcion } from '../models/funcion';
 
 @Component({
   selector: 'app-funcioneslist',
@@ -7,26 +9,26 @@ import { Router } from '@angular/router';
   styleUrls: ['./funcioneslist.component.css']
 })
 export class FuncioneslistComponent implements OnInit {
-  funciones = [
-    {
-      id: 1,
-      peliculaTitulo: 'Película Ejemplo 1',
-      fecha: '2024-09-15',
-      hora: '18:00',
-      sala: 'Sala 1'
-    },
-    {
-      id: 2,
-      peliculaTitulo: 'Película Ejemplo 2',
-      fecha: '2024-09-16',
-      hora: '20:00',
-      sala: 'Sala 2'
-    },
-  ];
+  funciones: Funcion[] = [];
 
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router,
+    private funcionService: FuncionesService
+  ) { }
 
   ngOnInit(): void {
+    this.cargarFunciones();
+  }
+
+  cargarFunciones() {
+    this.funcionService.getFunciones().subscribe(
+      (data) => {
+        this.funciones = data;
+      },
+      (error) => {
+        console.log('Error al obtener las funciones: ', error);
+      }
+    );
   }
 
   volverAInicio() {
