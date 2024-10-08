@@ -1,13 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
-interface Compra {
-  peliculaTitulo: string;
-  fechaFuncion: string;
-  horaFuncion: string;
-  cantidadEntradas: number;
-  fechaCompra: string;
-  total: number;
-}
+import { Compra } from '../models/compra';
 
 @Component({
   selector: 'app-historialcompras',
